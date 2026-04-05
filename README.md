@@ -6,7 +6,7 @@ A deep learning project that applies transfer learning with a pretrained **ResNe
 
 ## 🔗 Links
 
-- 📓 Google Colab Notebook https://colab.research.google.com/drive/1-a_W0GP0FG-r690rnJ438YnFfrpVeH8R?usp=sharing)
+- 📓 Google Colab Notebook https://colab.research.google.com/drive/1-a_W0GP0FG-r690rnJ438YnFfrpVeH8R?usp=sharing
 - 📄 Research Paper Reference:  https://drive.google.com/drive/folders/1RYYN1y-0Mv3-W3YFJDLLTh2jxNCujhiA?usp=drive_link
 - 📦 CIFAR-10 Dataset: https://www.cs.toronto.edu/~kriz/cifar.html
 
