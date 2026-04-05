@@ -6,9 +6,9 @@ A deep learning project that applies transfer learning with a pretrained **ResNe
 
 ## 🔗 Links
 
-📓 Google Colab Notebook https://colab.research.google.com/drive/1-a_W0GP0FG-r690rnJ438YnFfrpVeH8R?usp=sharing)
-📄 Research Paper Reference:  https://drive.google.com/drive/folders/1RYYN1y-0Mv3-W3YFJDLLTh2jxNCujhiA?usp=drive_link
-📦 CIFAR-10 Dataset: https://www.cs.toronto.edu/~kriz/cifar.html
+- 📓 Google Colab Notebook https://colab.research.google.com/drive/1-a_W0GP0FG-r690rnJ438YnFfrpVeH8R?usp=sharing)
+- 📄 Research Paper Reference:  https://drive.google.com/drive/folders/1RYYN1y-0Mv3-W3YFJDLLTh2jxNCujhiA?usp=drive_link
+- 📦 CIFAR-10 Dataset: https://www.cs.toronto.edu/~kriz/cifar.html
 
 ---
 
@@ -61,7 +61,7 @@ ResNet50 (pretrained, ImageNet)
     └── Dense(10, softmax)
 ```
 
-- First 129 layers **frozen** (preserves ImageNet features)
+- First 155 layers **frozen** (preserves ImageNet features)
 - Last 20 layers **fine-tuned** on CIFAR-10
 
 ---
@@ -80,59 +80,9 @@ ResNet50 (pretrained, ImageNet)
 
 ---
 
-## 📊 Results
-
-### Our Model vs Research Paper
-
-| Metric | Research Paper | Our Model |
-|---|---|---|
-| Accuracy | 65% | **82%** |
-| Macro Avg Precision | 0.65 | **0.82** |
-| Macro Avg Recall | 0.65 | **0.82** |
-| Macro Avg F1-Score | 0.64 | **0.82** |
-
-### Per-Class F1-Score (Our Model)
-
-| Class | Precision | Recall | F1-Score |
-|---|---|---|---|
-| airplane | 0.81 | 0.87 | 0.84 |
-| automobile | 0.89 | 0.89 | 0.89 |
-| bird | 0.75 | 0.79 | 0.77 |
-| cat | 0.72 | 0.66 | 0.69 |
-| deer | 0.77 | 0.78 | 0.78 |
-| dog | 0.77 | 0.77 | 0.77 |
-| frog | 0.80 | 0.90 | 0.84 |
-| horse | 0.88 | 0.80 | 0.84 |
-| ship | 0.93 | 0.86 | 0.89 |
-| truck | 0.88 | 0.87 | 0.87 |
-
----
-
-## 🔍 Why Our Model Outperformed the Paper
-
-1. **Pretrained ImageNet weights** — ResNet50 already learned rich features from 1.2M images
-2. **Fine-tuning strategy** — last 20 layers unfrozen for task-specific adaptation
-3. **Stronger classification head** — BatchNorm + Dropout reduced overfitting
-4. **Adam optimizer** — adaptive learning rate converges better on small datasets
-5. **Callbacks** — `ReduceLROnPlateau` and `EarlyStopping` prevented over/under-training
-
-> **Note:** Our model used 64×64 input vs the paper's native 32×32, which gives the model more spatial detail — so the comparison is not entirely equivalent.
-
----
-
-## ⚠️ Limitations & Future Improvements
-
-- Input size limited to 64×64 due to free Colab GPU memory constraints
-- No data augmentation applied (quick experiment setup)
-- Could try **MobileNetV2** or **EfficientNetB0** for lighter memory footprint
-- Using **224×224** input with Colab Pro would align better with original ResNet design
-- **SGD + Momentum** (original ResNet optimizer) may yield further gains
-
----
-
 ## 🛠️ How to Run
 
-1. Open the [Google Colab Notebook](#)
+1. Open the (https://colab.research.google.com/drive/1-a_W0GP0FG-r690rnJ438YnFfrpVeH8R?usp=sharing)
 2. Mount your Google Drive when prompted
 3. Run all cells in order — dataset loads automatically via `keras.datasets.cifar10`
 4. Results and plots are generated at the end of Task 3
